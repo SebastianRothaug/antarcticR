@@ -43,6 +43,7 @@
 
 
 
+
 plot_cont <- function(gdf, column, plot_limits,
                            title = "", title_size = 18, title_face = "bold.italic",
                            fill_colorscale = c("lightblue", "darkblue"),
