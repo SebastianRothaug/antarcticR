@@ -106,7 +106,7 @@ ggplot() +
   geom_raster(data = load_sea_ice("winter"), aes(x = x, y = y, fill = ice_thickness), alpha = 0.5) +  # Use the correct column name
   scale_fill_gradient(low = "white", high = "blue") +  # Color scale for the raster
   # Plot Antarctica in white (assuming Antarctica_repo is a vector object, use geom_sf)
-  geom_sf(data = Antarctica_repo, fill = "white", color = "white", size = 0.5) +
+  geom_sf(data = Antarctica_repo, fill = "green", color = "green", size = 0.5) +
   # Customize the plot
   theme_minimal() +
   theme(legend.position = "none") +
