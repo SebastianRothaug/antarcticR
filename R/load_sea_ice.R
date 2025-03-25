@@ -34,15 +34,19 @@ load_sea_ice <- function(season) {
     stop("Invalid season. Choose either 'summer' or 'winter'.")
   }
   cExtent <- c(-180,180,-90,-45)
-  iceMap <- crop(iceMap,cExtent)
+  iceMap <- terra::crop(iceMap,cExtent)
   iceMap <- raster::projectRaster(iceMap, crs = "epsg:3031")
+  # Convert raster data to a data frame for ggplot2
+  iceMap <- raster::as.data.frame(iceMap, xy = TRUE, na.rm = TRUE)
+  # Rename the data column so both season can be requested with the simalar, general column name
+  colnames(iceMap)[3] <- "ice_thickness"
 
   return(iceMap)
 }
 
 
 ###
-summer_ice <- load_sea_ice("winter")
+summer_ice <- load_sea_ice("summer")
 
 
-plot(summer_ice)
+View(summer_ice)
