@@ -89,7 +89,7 @@ getCalF <- function(IceShelf, Year = NULL, save_dir = ".") {
 
 
   # Plot the downloaded data
-  ggplot() +
+  front <- ggplot() +
     geom_sf(data = front, aes(color = as.factor(DATE_)), size = 0.8) +
     coord_sf(crs = "EPSG:3031") +  # Antarctic Polar Stereographic
     theme_minimal() +
@@ -102,9 +102,11 @@ getCalF <- function(IceShelf, Year = NULL, save_dir = ".") {
     )
 
   return(front)
+
+
   }
 
-}
 
 test <- getCalF("Bach", save_dir = "data/Bach")
 
+test
