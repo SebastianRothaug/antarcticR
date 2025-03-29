@@ -30,7 +30,7 @@ find_sim_change(
 Updated df_change dataframe.
 }
 \description{
-`find_sim_change` finds similar values based on different possible similarity measures in two columns of two dataframes.
+\code{find_sim_change} finds similar values based on different possible similarity measures in two columns of two dataframes.
 It then prompts the user to decide whether the values in one dataframe should be replaced by the values in the other dataframe.
 The function can also be used multiple times with different similarity measures.
 }

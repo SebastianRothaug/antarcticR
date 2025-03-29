@@ -30,7 +30,7 @@ define_limits(
 A lists containing two vectors of two values each.
 }
 \description{
-`define_limits` defines the plot limits of the final animation, or any two plots that should have the same limits. Also works for a single plot.
+\code{define_limits} defines the plot limits of the final animation, or any two plots that should have the same limits. Also works for a single plot.
 }
 \author{
 Anna Bischof, Georg Starz

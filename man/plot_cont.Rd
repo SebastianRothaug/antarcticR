@@ -89,7 +89,7 @@ Therefore, if TRUE when creating the animation, it will be calculated anew for e
 Plot of geodataframe with filled polygons according to continuous data
 }
 \description{
-`plot_cont` plots a ggplot of a geodataframe and fills the polygons according to continuous data
+\code{plot_cont} plots a ggplot of a geodataframe and fills the polygons according to continuous data
 }
 \author{
 Anna Bischof, Georg Starz
