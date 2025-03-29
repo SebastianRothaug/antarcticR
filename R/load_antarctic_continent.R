@@ -11,7 +11,7 @@
 #' @author Sebastian Rothaug
 #'
 #' @export
-load_antarctica <- function() {
+load_continent <- function() {
   antarctica <- rnaturalearth::ne_countries(continent = "Antarctica",
                                             scale = "medium",
                                             return = "sf")
