@@ -105,8 +105,3 @@ getCalF <- function(IceShelf, Year = NULL, save_dir = ".") {
 
 
   }
-
-
-test <- getCalF("Bach", save_dir = "data/Bach")
-
-test

@@ -12,7 +12,6 @@
 #' - The Antarctic continent is displayed in **gray**.
 #'
 #' @import ggplot2
-#' @importFrom sf geom_sf
 #'
 #' @examples
 #' \dontrun{
@@ -33,13 +32,13 @@ plot_season <- function(season) {
   season_plot <- ggplot2::ggplot() +
     # Plot the minimum ice map in red
     ggplot2::geom_raster(data = load_sea_ice("summer"), ggplot2::aes(x = x, y = y, fill = ice_thickness)) +  # Use the correct column name
-    ggplot2::scale_fill_gradient(low = "white", high = "red") +  # Color scale for the raster
+    ggplot2::scale_fill_gradient(low = "white", high = "blue") +  # Color scale for the raster
     # Plot Antarctica in white (assuming Antarctica_repo is a vector object, use geom_sf)
     ggplot2::geom_sf(data = load_continent(), fill = "gray", color = "gray", size = 0.5) +
     # Customize the plot
     ggplot2::theme_minimal() +
     ggplot2::theme(legend.position = "none") +
-    ggplot2::labs(title = "Ice Map Min (Red), Ice Map Max (Blue), Antarctica (White)")
+    ggplot2::labs(title = "Ice Map (Blue), Antarctica (White)")
   }
 
 
@@ -54,7 +53,7 @@ plot_season <- function(season) {
       # Customize the plot
       ggplot2::theme_minimal() +
       ggplot2::theme(legend.position = "none") +
-      ggplot2::labs(title = "Ice Map Min (Red), Ice Map Max (Blue), Antarctica (White)")
+      ggplot2::labs(title = "Ice Map (Blue), Antarctica (White)")
   }
 
   else {
@@ -63,9 +62,3 @@ plot_season <- function(season) {
 
   return(season_plot)
 }
-
-
-test <- plot_season("summer")
-
-
-test

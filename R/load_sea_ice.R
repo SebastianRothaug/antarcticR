@@ -54,8 +54,3 @@ load_sea_ice <- function(season) {
 
   return(iceMap)
 }
-
-
-seaIceSummer <- load_sea_ice("summer")
-
-plot(seaIceSummer)
