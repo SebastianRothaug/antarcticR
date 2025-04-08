@@ -1,3 +1,30 @@
+#' @title Download and Plot Antarctic Calving Fronts from DLR Icelines
+#'
+#' @description Downloads and visualizes Antarctic ice shelf calving front shapefiles from the DLR Icelines project for a specified year or all available years.
+#'
+#' @param IceShelf Character. Name of the Antarctic ice shelf (e.g., "LarsenC", "Ronne", "Amery").
+#' @param Year Optional. Numeric or character. Year to download (e.g., 2019). If NULL (default), all available years are downloaded.
+#' @param save_dir Character. Directory where files will be saved. If Year is NULL, a subfolder named after the ice shelf will be created.
+#'
+#' @return A ggplot object showing the calving fronts for the selected ice shelf and year(s).
+#'
+#' @details
+#' When `Year` is not specified, the function scrapes the DLR Icelines server to download and plot all available calving front shapefiles for the given ice shelf.
+#' The data are visualized using Antarctic Polar Stereographic projection (EPSG:3031), and the continent is plotted for geographic reference.
+#' If the file(s) already exist locally, they will not be downloaded again.
+#'
+#' @note Requires internet connection and the `rvest`, `sf`, `ggplot2`, and `viridis` packages.
+#'
+#' @examples
+#' \dontrun{
+#' getCalF("Amery")              # Download and plot all available years for Amery Ice Shelf
+#' getCalF("LarsenC", 2018)      # Download and plot only the year 2018 for Larsen C
+#' }
+#'
+#' @author Sebastian Rothaug
+#' @export
+
+
 getCalF <- function(IceShelf, Year = NULL, save_dir = ".") {
 
   # Check if necessary packages are installed
@@ -113,4 +140,3 @@ getCalF <- function(IceShelf, Year = NULL, save_dir = ".") {
   }
 }
 
-getCalF("Amery", 2019)
