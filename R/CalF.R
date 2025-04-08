@@ -16,15 +16,18 @@ getCalF <- function(IceShelf, Year = NULL, save_dir = ".") {
   subfolder <- paste0(IceShelf, "/annual/fronts/")
   url <- paste0(base_url, subfolder)
 
+  # If Year is NULL → use a subdirectory for the IceShelf
+  if (is.null(Year)) {
+    message("Year not specified → Downloading all available years for ", IceShelf)
+    save_dir <- file.path(save_dir, IceShelf)
+  } else {
+    message("Year specified → Downloading chosen year for ", IceShelf)
+  }
+
   # Create the save directory if it doesn't exist
   dir.create(save_dir, recursive = TRUE, showWarnings = FALSE)
 
-
-  ##
-  # If Year is NULL → Download all years
   if (is.null(Year)) {
-    message("Year not specified → Downloading all available years for ", IceShelf)
-
     # Scrape file list
     page <- read_html(url)
     files <- page %>% html_nodes("a") %>% html_text()
@@ -43,21 +46,21 @@ getCalF <- function(IceShelf, Year = NULL, save_dir = ".") {
       } else {
         message("Already downloaded: ", file)
       }
-
       front <- st_read(destfile, quiet = TRUE)
       fronts[[file]] <- front
     }
 
-
-    # Combine all the fronts into a single sf object
     front_combined <- do.call(rbind, fronts)
 
     message("Downloaded and combined ", length(fronts), " files.")
 
-    # Plot the combined data
+    bbox <- sf::st_bbox(front_combined)
+    AOI_continent <- sf::st_crop(load_continent(), bbox)
+
     front_combined_plot <- ggplot() +
-      geom_sf(data = front_combined, aes(color = as.factor(DATE_)), size = 0.8) +
-      coord_sf(crs = "EPSG:3031") +  # Antarctic Polar Stereographic
+      ggplot2::geom_sf(data = AOI_continent, fill = "gray", color = "gray", size = 0.5) +
+      ggplot2::geom_sf(data = front_combined, aes(color = as.factor(DATE_)), size = 0.8) +
+      coord_sf(crs = "EPSG:3031") +
       theme_minimal() +
       scale_color_viridis_d(name = "Year") +
       labs(title = paste("Calving Front -", IceShelf, "(All Years)"),
@@ -67,41 +70,47 @@ getCalF <- function(IceShelf, Year = NULL, save_dir = ".") {
         plot.caption = element_text(size = 8)
       )
 
-    return(front_combined)
+    return(front_combined_plot)
   }
 
+  else if (!is.null(Year)) {
+    filename <- paste0(Year, "noQ1_mean-", IceShelf, ".gpkg")
+    file_url <- paste0(url, filename)
+    destfile <- file.path(save_dir, filename)
 
-  ##
-  # If Year is specified → Download one file
-  filename <- paste0(Year, "noQ1_mean-", IceShelf, ".gpkg")
-  file_url <- paste0(url, filename)
-  destfile <- file.path(save_dir, filename)
+    if (!file.exists(destfile)) {
+      message("Downloading: ", filename)
+      download.file(file_url, destfile, mode = "wb")
+    } else {
+      message("Already downloaded: ", filename)
+    }
 
-  if (!file.exists(destfile)) {
-    message("Downloading: ", filename)
-    download.file(file_url, destfile, mode = "wb")
-  } else {
-    message("Already downloaded: ", filename)
+    message("Reading: ", filename)
+    front <- st_read(destfile, quiet = TRUE)
+
+    bbox <- sf::st_bbox(front)
+    AOI_continent <- sf::st_crop(load_continent(), bbox)
+    date_label <- unique(front$DATE_)[1]
+
+    front_plot <- ggplot() +
+      ggplot2::geom_sf(data = AOI_continent, fill = "gray", color = "gray", size = 0.5) +
+      ggplot2::geom_sf(data = front, color = "red", size = 0.8) +
+      coord_sf(crs = "EPSG:3031") +
+      theme_minimal() +
+      scale_color_viridis_d(name = "Year") +
+      labs(title = paste("Calving Front -", IceShelf, "(", date_label, ")"),
+           caption = "Data source: DLR Icelines Project") +
+      theme(
+        plot.title = element_text(size = 14, face = "bold"),
+        plot.caption = element_text(size = 8)
+      )
+
+    return(front_plot)
   }
 
-  message("Reading: ", filename)
-  front <- st_read(destfile, quiet = TRUE)
-
-
-  # Plot the downloaded data
-  front <- ggplot() +
-    geom_sf(data = front, aes(color = as.factor(DATE_)), size = 0.8) +
-    coord_sf(crs = "EPSG:3031") +  # Antarctic Polar Stereographic
-    theme_minimal() +
-    scale_color_viridis_d(name = "Year") +
-    labs(title = paste("Calving Front -", IceShelf, "(", DATE_, ")"),
-         caption = "Data source: DLR Icelines Project") +
-    theme(
-      plot.title = element_text(size = 14, face = "bold"),
-      plot.caption = element_text(size = 8)
-    )
-
-  return(front)
-
-
+  else {
+    stop("Invalid input.")
   }
+}
+
+getCalF("Amery", 2019)
