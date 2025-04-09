@@ -34,5 +34,5 @@ plot_season("winter")
 \code{\link{load_sea_ice}}, \code{\link{load_continent}}
 }
 \author{
-Your Name
+Sebastian Rothaug
 }

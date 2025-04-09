@@ -10,7 +10,8 @@ load_antarctic_coastline()
 A spatial or simple features (\code{sf}) object containing the Antarctic coastline.
 }
 \description{
-This function loads the Antarctic coastline dataset from the package.
+This function loads the Antarctic coastline dataset.
+The data derived from the DLR-German Aerospace Center Icelines Download Service.
 }
 \examples{
 \dontrun{
