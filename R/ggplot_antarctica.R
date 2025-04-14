@@ -42,9 +42,9 @@ plot_season <- function(season) {
       ggplot2::geom_point(data = legend_data,
                           ggplot2::aes(x = x, y = y, shape = type, color = type), size = 4) +
 
-      ggplot2::scale_color_manual(name = "Features",
+      ggplot2::scale_color_manual(name = "Antarctica",
                                   values = c("Continent" = "gray", "Coastline" = "black")) +
-      ggplot2::scale_shape_manual(name = "Features",
+      ggplot2::scale_shape_manual(name = "Antarctica",
                                   values = c("Continent" = 15, "Coastline" = 15)) + # Square symbols
 
       # Sea Ice mit kontinuierlichem Fill
@@ -77,9 +77,9 @@ plot_season <- function(season) {
       ggplot2::geom_point(data = legend_data,
                           ggplot2::aes(x = x, y = y, shape = type, color = type), size = 4) +
 
-      ggplot2::scale_color_manual(name = "Features",
+      ggplot2::scale_color_manual(name = "Antarctica",
                                   values = c("Continent" = "gray", "Coastline" = "black")) +
-      ggplot2::scale_shape_manual(name = "Features",
+      ggplot2::scale_shape_manual(name = "Antarctica",
                                   values = c("Continent" = 15, "Coastline" = 15)) + # Square symbols
 
       # Sea Ice mit kontinuierlichem Fill
