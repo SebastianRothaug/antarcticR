@@ -29,31 +29,73 @@
 plot_season <- function(season) {
 
   if (season == "summer") {
-  season_plot <- ggplot2::ggplot() +
-    # Plot the minimum ice map in red
-    ggplot2::geom_raster(data = antarcticR::load_sea_ice("summer"), ggplot2::aes(x = x, y = y, fill = ice_thickness)) +  # Use the correct column name
-    ggplot2::scale_fill_gradient(low = "white", high = "blue") +  # Color scale for the raster
-    # Plot Antarctica in white (assuming Antarctica_repo is a vector object, use geom_sf)
-    ggplot2::geom_sf(data = antarcticR::load_continent(), fill = "gray", color = "gray", size = 0.5) +
-    # Customize the plot
-    ggplot2::theme_minimal() +
-    ggplot2::theme(legend.position = "none") +
-    ggplot2::labs(title = "Ice Map (Blue), Antarctica (White)")
+    # Dummy-Data für Legende
+    legend_data <- data.frame(
+      x = c(0, 0),
+      y = c(0, 0),
+      type = c("Continent", "Coastline")
+    )
+
+    season_plot <- ggplot2::ggplot() +
+
+      # Dummy-Elemente nur für Legende mit `shape` + `color`
+      ggplot2::geom_point(data = legend_data,
+                          ggplot2::aes(x = x, y = y, shape = type, color = type), size = 4) +
+
+      ggplot2::scale_color_manual(name = "Features",
+                                  values = c("Continent" = "gray", "Coastline" = "black")) +
+      ggplot2::scale_shape_manual(name = "Features",
+                                  values = c("Continent" = 15, "Coastline" = 15)) + # Square symbols
+
+      # Sea Ice mit kontinuierlichem Fill
+      ggplot2::geom_raster(data = antarcticR::load_sea_ice("summer"),
+                           ggplot2::aes(x = x, y = y, fill = ice_thickness)) +
+      ggplot2::scale_fill_gradient(name = "Sea Ice", low = "white", high = "blue") +
+
+      # Kontinent & Küstenlinie
+      ggplot2::geom_sf(data = antarcticR::load_continent(),
+                       fill = "gray", color = "gray", size = 0.5, show.legend = FALSE) +
+      ggplot2::geom_sf(data = antarcticR::load_antarctic_coastline(),
+                       fill = "black", color = "black", size = 0.5, show.legend = FALSE) +
+
+
+      ggplot2::theme_minimal() +
+      ggplot2::labs(title = "Antarctic Summer")
   }
 
-
-  ### else if wichtig
   else if (season == "winter") {
+    # Dummy-Data für Legende
+    legend_data <- data.frame(
+      x = c(0, 0),
+      y = c(0, 0),
+      type = c("Continent", "Coastline")
+    )
+
     season_plot <- ggplot2::ggplot() +
-      # Plot the minimum ice map in red
-      ggplot2::geom_raster(data = antarcticR::load_sea_ice("winter"), ggplot2::aes(x = x, y = y, fill = ice_thickness)) +  # Use the correct column name
-      ggplot2::scale_fill_gradient(low = "white", high = "blue") +  # Color scale for the raster
-      # Plot Antarctica in white (assuming Antarctica_repo is a vector object, use geom_sf)
-      ggplot2::geom_sf(data = antarcticR::load_continent(), fill = "gray", color = "gray", size = 0.5) +
-      # Customize the plot
+
+      # Dummy-Elemente nur für Legende mit `shape` + `color`
+      ggplot2::geom_point(data = legend_data,
+                          ggplot2::aes(x = x, y = y, shape = type, color = type), size = 4) +
+
+      ggplot2::scale_color_manual(name = "Features",
+                                  values = c("Continent" = "gray", "Coastline" = "black")) +
+      ggplot2::scale_shape_manual(name = "Features",
+                                  values = c("Continent" = 15, "Coastline" = 15)) + # Square symbols
+
+      # Sea Ice mit kontinuierlichem Fill
+      ggplot2::geom_raster(data = antarcticR::load_sea_ice("winter"),
+                           ggplot2::aes(x = x, y = y, fill = ice_thickness)) +
+      ggplot2::scale_fill_gradient(name = "Sea Ice", low = "white", high = "blue") +
+
+      # Kontinent & Küstenlinie
+      ggplot2::geom_sf(data = antarcticR::load_continent(),
+                       fill = "gray", color = "gray", size = 0.5, show.legend = FALSE) +
+      ggplot2::geom_sf(data = antarcticR::load_antarctic_coastline(),
+                       fill = "black", color = "black", size = 0.5, show.legend = FALSE) +
+
+
       ggplot2::theme_minimal() +
-      ggplot2::theme(legend.position = "none") +
-      ggplot2::labs(title = "Ice Map (Blue), Antarctica (White)")
+      ggplot2::labs(title = "Antarctic Winter")
   }
 
   else {
@@ -62,4 +104,13 @@ plot_season <- function(season) {
 
   return(season_plot)
 }
+
+
+
+
+
+
+
+
+
 
