@@ -11,7 +11,7 @@ A spatial or simple features (\code{sf}) object containing all the Antarctic Ice
 }
 \description{
 This function loads the Antarctic Ice Shelf dataset.
-The data derived from naturalearthdata Download Service.
+The data derived from naturalearthdata Download Service, based on the 2003-2004 reference data.
 }
 \examples{
 \dontrun{

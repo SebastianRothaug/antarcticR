@@ -7,9 +7,9 @@
 getCalF(IceShelf, Year = NULL, save_dir = ".")
 }
 \arguments{
-\item{IceShelf}{Character. Name of the Antarctic ice shelf (e.g., "LarsenC", "Ronne", "Amery").}
+\item{IceShelf}{Character. Name of the Antarctic ice shelf (e.g., "Getz1","GeorgeSouth", "Thwaites1", "Amery").}
 
-\item{Year}{Optional. Numeric or character. Year to download (e.g., 2019). If NULL (default), all available years are downloaded.}
+\item{Year}{Optional. Numeric or character. Year to download (e.g., 2019) - The annual data availability is not constant and is individual for each ice shelf. If NULL (default), all available years are downloaded.}
 
 \item{save_dir}{Character. Directory where files will be saved. If Year is NULL, a subfolder named after the ice shelf will be created.}
 }
@@ -29,8 +29,8 @@ Requires internet connection and the \code{rvest}, \code{sf}, \code{ggplot2} pac
 }
 \examples{
 \dontrun{
-getCalF("Amery")              # Download and plot all available years for Amery Ice Shelf
-getCalF("LarsenC", 2018)      # Download and plot only the year 2018 for Larsen C
+getCalF("Getz1")              # Download and plot all available years for Getz1 Ice Shelf
+getCalF("Wilkins", 2020)      # Download and plot only the year 2020 for Wilkins
 }
 
 }

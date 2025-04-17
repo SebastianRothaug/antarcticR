@@ -81,8 +81,8 @@ getCalF <- function(IceShelf, Year = NULL, save_dir = ".") {
     bbox_expanded["ymin"] <- bbox["ymin"] - expand_km
     bbox_expanded["ymax"] <- bbox["ymax"] + expand_km
 
-    AOI_ice_shelves <- sf::st_crop(load_ice_shelves(), bbox_expanded)
-    AOI_continent <- sf::st_crop(load_continent(), bbox_expanded)
+    AOI_ice_shelves <- sf::st_crop(antarcticR::load_ice_shelves(), bbox_expanded)
+    AOI_continent <- sf::st_crop(antarcticR::load_continent(), bbox_expanded)
 
 
     front_combined_plot <- ggplot2::ggplot() +
@@ -148,8 +148,8 @@ getCalF <- function(IceShelf, Year = NULL, save_dir = ".") {
     bbox_expanded["ymin"] <- bbox["ymin"] - expand_km
     bbox_expanded["ymax"] <- bbox["ymax"] + expand_km
 
-    AOI_continent <- sf::st_crop(load_continent(), bbox_expanded)
-    AOI_ice_shelves <- sf::st_crop(load_ice_shelves(), bbox_expanded)
+    AOI_continent <- sf::st_crop(antarcticR::load_continent(), bbox_expanded)
+    AOI_ice_shelves <- sf::st_crop(antarcticR::load_ice_shelves(), bbox_expanded)
     date_label <- unique(front$DATE_)[1]
 
     front_plot <- ggplot2::ggplot() +
