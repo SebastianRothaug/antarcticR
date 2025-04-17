@@ -3,6 +3,7 @@
 export(getCalF)
 export(load_antarctic_coastline)
 export(load_continent)
+export(load_ice_shelves)
 export(load_sea_ice)
 export(plot_season)
 import(ggplot2)
