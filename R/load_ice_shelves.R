@@ -1,7 +1,7 @@
 #' Load Antarctic Ice Shelf Data
 #'
 #' This function loads the Antarctic Ice Shelf dataset.
-#' The data derived from naturalearthdata Download Service.
+#' The data derived from naturalearthdata Download Service, based on the 2003-2004 reference data.
 #'
 #' @return A spatial or simple features (`sf`) object containing all the Antarctic Ice Shelves.
 #'

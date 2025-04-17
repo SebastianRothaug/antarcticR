@@ -33,7 +33,7 @@ plot_season <- function(season) {
     legend_data <- data.frame(
       x = c(0, 0),
       y = c(0, 0),
-      type = c("Continent", "Coastline")
+      type = c("Continent", "Ice Shelves")
     )
 
     season_plot <- ggplot2::ggplot() +
@@ -42,10 +42,10 @@ plot_season <- function(season) {
       ggplot2::geom_point(data = legend_data,
                           ggplot2::aes(x = x, y = y, shape = type, color = type), size = 4) +
 
-      ggplot2::scale_color_manual(name = "Antarctica",
-                                  values = c("Continent" = "gray", "Coastline" = "black")) +
-      ggplot2::scale_shape_manual(name = "Antarctica",
-                                  values = c("Continent" = 15, "Coastline" = 15)) + # Square symbols
+      ggplot2::scale_color_manual(name = "Antarctic",
+                                  values = c("Continent" = "#e7ded9", "Ice Shelves" = "#c9f0ff")) +
+      ggplot2::scale_shape_manual(name = "Antarctic",
+                                  values = c("Continent" = 15, "Ice Shelves" = 15)) + # Square symbols
 
       # Sea Ice mit kontinuierlichem Fill
       ggplot2::geom_raster(data = antarcticR::load_sea_ice("summer"),
@@ -54,9 +54,11 @@ plot_season <- function(season) {
 
       # Kontinent & Küstenlinie
       ggplot2::geom_sf(data = antarcticR::load_continent(),
-                       fill = "gray", color = "gray", size = 0.5, show.legend = FALSE) +
+                       fill = "#e7ded9", color = "#e7ded9", size = 0.5, show.legend = FALSE) +
+      ggplot2::geom_sf(data = antarcticR::load_ice_shelves(),
+                       fill = "#c9f0ff", color = "#c9f0ff", size = 0.5, show.legend = FALSE) +
       ggplot2::geom_sf(data = antarcticR::load_antarctic_coastline(),
-                       fill = "black", color = "black", size = 0.5, show.legend = FALSE) +
+                       fill = "gray", color = "gray", size = 0.5, show.legend = FALSE) +
 
 
       ggplot2::theme_minimal() +
@@ -68,7 +70,7 @@ plot_season <- function(season) {
     legend_data <- data.frame(
       x = c(0, 0),
       y = c(0, 0),
-      type = c("Continent", "Coastline")
+      type = c("Continent", "Ice Shelves")
     )
 
     season_plot <- ggplot2::ggplot() +
@@ -77,10 +79,10 @@ plot_season <- function(season) {
       ggplot2::geom_point(data = legend_data,
                           ggplot2::aes(x = x, y = y, shape = type, color = type), size = 4) +
 
-      ggplot2::scale_color_manual(name = "Antarctica",
-                                  values = c("Continent" = "gray", "Coastline" = "black")) +
-      ggplot2::scale_shape_manual(name = "Antarctica",
-                                  values = c("Continent" = 15, "Coastline" = 15)) + # Square symbols
+      ggplot2::scale_color_manual(name = "Antarctic",
+                                  values = c("Continent" = "#e7ded9", "Ice Shelves" = "#c9f0ff")) +
+      ggplot2::scale_shape_manual(name = "Antarctic",
+                                  values = c("Continent" = 15, "Ice Shelves" = 15)) + # Square symbols
 
       # Sea Ice mit kontinuierlichem Fill
       ggplot2::geom_raster(data = antarcticR::load_sea_ice("winter"),
@@ -89,10 +91,11 @@ plot_season <- function(season) {
 
       # Kontinent & Küstenlinie
       ggplot2::geom_sf(data = antarcticR::load_continent(),
-                       fill = "gray", color = "gray", size = 0.5, show.legend = FALSE) +
+                       fill = "#e7ded9", color = "#e7ded9", size = 0.5, show.legend = FALSE) +
+      ggplot2::geom_sf(data = antarcticR::load_ice_shelves(),
+                       fill = "#c9f0ff", color = "#c9f0ff", size = 0.5, show.legend = FALSE) +
       ggplot2::geom_sf(data = antarcticR::load_antarctic_coastline(),
-                       fill = "black", color = "black", size = 0.5, show.legend = FALSE) +
-
+                       fill = "gray", color = "gray", size = 0.5, show.legend = FALSE) +
 
       ggplot2::theme_minimal() +
       ggplot2::labs(title = "Antarctic Winter")
