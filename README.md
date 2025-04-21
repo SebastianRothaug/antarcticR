@@ -1,5 +1,4 @@
 # antarcticR
-
 Welcome to antarcticR ! a package that combines different environmental features of the Antarctic, such as ice shelves, antarctic continetal shelf and the seasonal sea ice distribution. 
 It has a particular focus on the calving front dynamics along the antarctic coastline. 
 The package provides a tool for accessing, analyzing and visualizing spatial data of this remote region, supporting research on ice sheet retreat and polar environmental change.
@@ -19,3 +18,7 @@ remotes::install_github("SebastianRothaug/antarcticR")
 library(antarcticR)
 ```
 &nbsp;
+
+
+
+![Image](https://github.com/user-attachments/assets/1bd51974-9dbd-4b92-9d77-59422f9fd43d)
