@@ -30,7 +30,7 @@ load_sea_ice('summer') or load_sea_ice('winter') # access geospatial data for th
 ```
 &nbsp;
 
-Combining and Visualizing geospatial within the Antarctic seasonality
+Combining and Visualizing geospatial data within the Antarctic seasonality
 &nbsp;
 ```R
 plot_season('summer') or plot_season('winter') # 
