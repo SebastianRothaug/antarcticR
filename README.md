@@ -12,7 +12,6 @@ The package provides a tool for accessing, analyzing and visualizing spatial dat
 &nbsp;
 
 ## Installation
-The package was developed with R version 4.3.1 on Windows. Mac & Linux haven't been tested so far. To install and load bubblegam, enter these commands in your R console:
 &nbsp;
 ```R
 library(remotes)
