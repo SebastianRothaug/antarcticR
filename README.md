@@ -1,7 +1,7 @@
 # antarcticR
 Welcome to antarcticR ! a package that combines different environmental features of the Antarctic, such as ice shelves, antarctic continetal shelf and the seasonal sea ice distribution. 
 It has a particular focus on the calving front dynamics along the antarctic coastline. 
-The package provides a tool for accessing, analyzing and visualizing spatial data of this remote region, supporting research on ice sheet retreat and polar environmental change.
+The package provides a tool for accessing, analyzing and visualizing spatial data of this remote region, supporting research on ice shelf retreat and polar environmental change.
 &nbsp;
 
 *Author: [Sebastian Rothaug](http://students.eagle-science.org/students/students-2024/sebastian/)*
@@ -43,7 +43,7 @@ get Calving Fronts - Function to access, analyze and visualize Antarctic calving
 Tool for annual calving front dynamic and ice shelf retreat analysation.
 &nbsp;
 ```R
-getCalF()
+getCalF(IceShelf, Year, save_dir)
 ```
 &nbsp;
 
