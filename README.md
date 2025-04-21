@@ -20,17 +20,20 @@ library(antarcticR)
 &nbsp;
 
 ## Functions
+Accessing geospatial data for different environmental features of Antarctica
 &nbsp;
 ```R
-# load functions
 load_continent() # access geospatial data for the Antarctic continental shelf
 load_ice_shelves() # access geospatial data for the Ice Shelves of Antarctica
 load_antarctic_coastline() # access geospatial data for the Antarctic coastline
 load_sea_ice('summer') or load_sea_ice('winter') # access geospatial data for the seasonal Sea Ice thickness and distribution
+```
+&nbsp;
 
-# plot function
-
-
+Combining and Visualizing geospatial within the Antarctic seasonality
+&nbsp;
+```R
+plot_season('summer') or plot_season('winter') # 
 ```
 &nbsp;
 
