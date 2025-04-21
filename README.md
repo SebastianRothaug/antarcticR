@@ -39,5 +39,13 @@ plot_season('winter')
 ```
 &nbsp;
 
+get Calving Fronts - Function to access, analyze and visualize Antarctic calving front positions.
+Calving front dynamic and ice shelf retreat analysation tool.
+&nbsp;
+```R
+getCalF()
+```
+&nbsp;
+
 
 ![Image](https://github.com/user-attachments/assets/1bd51974-9dbd-4b92-9d77-59422f9fd43d)
