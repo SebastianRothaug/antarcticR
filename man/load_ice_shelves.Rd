@@ -20,3 +20,6 @@ plot(ice_shelves)
 }
 
 }
+\author{
+Sebastian Rothaug
+}

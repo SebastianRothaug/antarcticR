@@ -28,84 +28,99 @@
 
 plot_season <- function(season) {
 
+  ### Summer Season ###
   if (season == "summer") {
-    # Dummy-Data für Legende
+
+    ## Dummy-Data for the legend (not vissible in the plot)
     legend_data <- data.frame(
       x = c(0, 0),
       y = c(0, 0),
       type = c("Continent", "Ice Shelves")
     )
 
+    # ggplot definition
     season_plot <- ggplot2::ggplot() +
 
-      # Dummy-Elemente nur für Legende mit `shape` + `color`
+      ## Dummy-Elements only for the legend (not vissible in the plot)
       ggplot2::geom_point(data = legend_data,
                           ggplot2::aes(x = x, y = y, shape = type, color = type), size = 4) +
-
       ggplot2::scale_color_manual(name = "Antarctic",
                                   values = c("Continent" = "#e7ded9", "Ice Shelves" = "#c9f0ff")) +
       ggplot2::scale_shape_manual(name = "Antarctic",
                                   values = c("Continent" = 15, "Ice Shelves" = 15)) + # Square symbols
 
-      # Sea Ice mit kontinuierlichem Fill
+
+      # Sea Ice
       ggplot2::geom_raster(data = antarcticR::load_sea_ice("summer"),
                            ggplot2::aes(x = x, y = y, fill = ice_thickness)) +
+      # continious fill of the Sea Ice
       ggplot2::scale_fill_gradient(name = "Sea Ice", low = "white", high = "blue") +
 
-      # Kontinent & Küstenlinie
+      # Continent
       ggplot2::geom_sf(data = antarcticR::load_continent(),
                        fill = "#e7ded9", color = "#e7ded9", size = 0.5, show.legend = FALSE) +
+      # Ice Shelves
       ggplot2::geom_sf(data = antarcticR::load_ice_shelves(),
                        fill = "#c9f0ff", color = "#c9f0ff", size = 0.5, show.legend = FALSE) +
+      # Coastline
       ggplot2::geom_sf(data = antarcticR::load_antarctic_coastline(),
                        fill = "gray", color = "gray", size = 0.5, show.legend = FALSE) +
 
-
+      # ggplot theme
       ggplot2::theme_minimal() +
+      # title
       ggplot2::labs(title = "Antarctic Summer")
   }
 
+
+  ### Winter Season ###
   else if (season == "winter") {
-    # Dummy-Data für Legende
+    ## Dummy-Data for the legend (not vissible in the plot)
     legend_data <- data.frame(
       x = c(0, 0),
       y = c(0, 0),
       type = c("Continent", "Ice Shelves")
     )
 
+    # ggplot definition
     season_plot <- ggplot2::ggplot() +
 
-      # Dummy-Elemente nur für Legende mit `shape` + `color`
+      ## Dummy-Elements only for the legend (not vissible in the plot)
       ggplot2::geom_point(data = legend_data,
                           ggplot2::aes(x = x, y = y, shape = type, color = type), size = 4) +
-
       ggplot2::scale_color_manual(name = "Antarctic",
                                   values = c("Continent" = "#e7ded9", "Ice Shelves" = "#c9f0ff")) +
       ggplot2::scale_shape_manual(name = "Antarctic",
                                   values = c("Continent" = 15, "Ice Shelves" = 15)) + # Square symbols
 
-      # Sea Ice mit kontinuierlichem Fill
+
+      # Sea Ice
       ggplot2::geom_raster(data = antarcticR::load_sea_ice("winter"),
                            ggplot2::aes(x = x, y = y, fill = ice_thickness)) +
+      # continious fill of the Sea Ice
       ggplot2::scale_fill_gradient(name = "Sea Ice", low = "white", high = "blue") +
 
-      # Kontinent & Küstenlinie
+      # Continent
       ggplot2::geom_sf(data = antarcticR::load_continent(),
                        fill = "#e7ded9", color = "#e7ded9", size = 0.5, show.legend = FALSE) +
+      # Ice Shelves
       ggplot2::geom_sf(data = antarcticR::load_ice_shelves(),
                        fill = "#c9f0ff", color = "#c9f0ff", size = 0.5, show.legend = FALSE) +
+      # Coastline
       ggplot2::geom_sf(data = antarcticR::load_antarctic_coastline(),
                        fill = "gray", color = "gray", size = 0.5, show.legend = FALSE) +
 
+      # ggplot theme
       ggplot2::theme_minimal() +
+      # title
       ggplot2::labs(title = "Antarctic Winter")
   }
 
   else {
-    stop("Invalid season for plot. Choose either 'summer' or 'winter'.")
+    stop("Invalid season for plot. Choose either 'summer' or 'winter'.") # Invalid Input
   }
 
-  return(season_plot)
+  return(season_plot) # return statement
 }
 
 

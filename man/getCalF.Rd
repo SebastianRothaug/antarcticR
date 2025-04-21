@@ -29,8 +29,10 @@ Requires internet connection and the \code{rvest}, \code{sf}, \code{ggplot2} pac
 }
 \examples{
 \dontrun{
-getCalF("Getz1")              # Download and plot all available years for Getz1 Ice Shelf
-getCalF("Wilkins", 2020)      # Download and plot only the year 2020 for Wilkins
+getCalF("Getz1")  # Download and plot all available years for Getz1 Ice Shelf
+getCalF("Wilkins", 2020)  # Download and plot only the year 2020 for Wilkins
+
+getCalF(IceShelf = "Wilkins", Year = 2020, save_dir = "PATH to your saving directory")
 }
 
 }

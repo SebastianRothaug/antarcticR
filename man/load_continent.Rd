@@ -13,6 +13,14 @@ An \code{sf} object containing the geometry of Antarctica.
 This function loads Antarctica's country boundaries as a simple features (\code{sf}) object
 and transforms the projection to EPSG:3031 (Antarctic Polar Stereographic).
 }
+\examples{
+\dontrun{
+continent <- load_continent()
+plot(continent)
+}
+
+
+}
 \author{
 Sebastian Rothaug
 }

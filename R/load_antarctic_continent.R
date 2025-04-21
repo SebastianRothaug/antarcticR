@@ -8,6 +8,13 @@
 #' @import rnaturalearth
 #' @importFrom sf st_transform
 #'
+#' @examples
+#' \dontrun{
+#' continent <- load_continent()
+#' plot(continent)
+#' }
+#'
+#'
 #' @author Sebastian Rothaug
 #'
 #' @export
@@ -16,6 +23,7 @@ load_continent <- function() {
                                             scale = "medium",
                                             return = "sf")
 
+  # CRS Transformation into the Antarctic EPSG: 3031
   antarctica <- sf::st_transform(antarctica, crs = 3031)
 
   return(antarctica)

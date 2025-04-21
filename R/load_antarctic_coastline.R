@@ -11,6 +11,8 @@
 #' plot(coastline)
 #' }
 #'
+#' @author Sebastian Rothaug
+#'
 #' @export
 load_antarctic_coastline <- function() {
   data_env <- new.env()

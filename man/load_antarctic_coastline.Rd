@@ -20,3 +20,6 @@ plot(coastline)
 }
 
 }
+\author{
+Sebastian Rothaug
+}

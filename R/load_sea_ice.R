@@ -29,12 +29,13 @@
 #'
 #' @seealso \code{\link{plot_season}}
 #'
-#' @author Your Name
+#' @author Sebastian Rothaug
 #' @export
 
 
 load_sea_ice <- function(season) {
 
+  # load data using the sdmpredictors package
   if (season == "summer") {
     iceMap <- sdmpredictors::load_layers("BO21_icethickltmin_ss")
   }
@@ -44,12 +45,15 @@ load_sea_ice <- function(season) {
   else {
     stop("Invalid season. Choose either 'summer' or 'winter'.")
   }
+  # Define Extent of the Southern Hemisphere
   cExtent <- c(-180,180,-90,-45)
+  # Crop Ice Data on this Extent
   iceMap <- terra::crop(iceMap,cExtent)
+  # CRS Transformation into the Antarctic EPSG: 3031
   iceMap <- raster::projectRaster(iceMap, crs = "epsg:3031")
   # Convert raster data to a data frame for ggplot2
   iceMap <- raster::as.data.frame(iceMap, xy = TRUE, na.rm = TRUE)
-  # Rename the data column so both season can be requested with the simalar, general column name
+  # Rename the data column so both season can be requested with the similar, general column name
   colnames(iceMap)[3] <- "ice_thickness"
 
   return(iceMap)

@@ -11,6 +11,8 @@
 #' plot(ice_shelves)
 #' }
 #'
+#'@author Sebastian Rothaug
+#'
 #' @export
 load_ice_shelves <- function() {
   data_env <- new.env()

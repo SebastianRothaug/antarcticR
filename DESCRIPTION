@@ -1,12 +1,11 @@
 Package: antarcticR
 Type: Package
-Title: What the Package Does (Title Case)
+Title: antarcticR - Environmental Features of the Antarctic
 Version: 0.1.0
 Author: Sebastian Rothaug
 Maintainer: Sebastian Rothaug <sebastian.rothaug@stud-mail.uni-wuerzburg.de>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Description: antarcticR is a package that combines different environmental features of the Antarctic. Such as ice shelves, antarctic continetal shelf and the seasonal sea ice distribution. It has a particular focus on the calving front dynamics along the antarctic coastline. The package provides a tool for accessing, analyzing and visualizing spatial data of this remote region, supporting research on ice sheet retreat and polar environmental change.
+License: 
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.2
