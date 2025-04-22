@@ -36,6 +36,7 @@ Combining and Visualizing geospatial data within the Antarctic seasonality
 ```R
 plot_season('summer')
 plot_season('winter')
+# output/return is already a plot statement
 ```
 &nbsp;
 
@@ -45,6 +46,7 @@ Tool for annual calving front dynamic and ice shelf retreat analysation.
 ```R
 getCalF(IceShelf, Year, save_dir)
 getCalF('Getz1', 2020, 'PATH to your saving directory') # annual Calving Front position of a particular year (download data + plot)
-getCalF('Getz1', 'PATH to your saving directory') # all availble annual Calving Front dynamics of the Ice Shelf (download data + plot)
+getCalF('Getz1', save_dir = 'PATH to your saving directory') # all availble annual Calving Front dynamics of the Ice Shelf (download data + plot)
+# output/return is already a plot statement (+ download to your directory)
 ```
 &nbsp;
