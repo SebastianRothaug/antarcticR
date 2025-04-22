@@ -46,3 +46,9 @@ Tool for annual calving front dynamic and ice shelf retreat analysation.
 getCalF(IceShelf, Year, save_dir)
 ```
 &nbsp;
+<<<<<<< HEAD
+=======
+
+
+![Image](https://github.com/user-attachments/assets/1bd51974-9dbd-4b92-9d77-59422f9fd43d)
+>>>>>>> eacb3a1 (# read me update R)
