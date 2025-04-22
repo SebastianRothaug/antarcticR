@@ -23,10 +23,10 @@ library(antarcticR)
 Accessing geospatial data for different environmental features of Antarctica
 &nbsp;
 ```R
-load_continent() # access geospatial data for the Antarctic continental shelf
-load_ice_shelves() # access geospatial data for the Ice Shelves of Antarctica
-load_antarctic_coastline() # access geospatial data for the Antarctic coastline
-load_sea_ice('summer') # access geospatial data for the seasonal Sea Ice thickness and distribution
+load_continent() # access geospatial (sf) data for the Antarctic continental shelf
+load_ice_shelves() # access geospatial (sf) data for the Ice Shelves of Antarctica
+load_antarctic_coastline() # access geospatial (sf) data for the Antarctic coastline
+load_sea_ice('summer') # access geospatial (raster) data for the seasonal Sea Ice thickness and distribution
 load_sea_ice('winter')
 ```
 &nbsp;
