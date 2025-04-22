@@ -130,5 +130,3 @@ plot_season <- function(season) {
 
 
 
-
-
