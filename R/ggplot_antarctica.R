@@ -54,7 +54,7 @@ plot_season <- function(season) {
       ggplot2::geom_raster(data = antarcticR::load_sea_ice("summer"),
                            ggplot2::aes(x = x, y = y, fill = ice_thickness)) +
       # continious fill of the Sea Ice
-      ggplot2::scale_fill_gradient(name = "Sea Ice", low = "white", high = "blue") +
+      ggplot2::scale_fill_gradient(name = "Sea Ice\n(thickness in m)", low = "white", high = "blue") +
 
       # Continent
       ggplot2::geom_sf(data = antarcticR::load_continent(),
@@ -98,7 +98,7 @@ plot_season <- function(season) {
       ggplot2::geom_raster(data = antarcticR::load_sea_ice("winter"),
                            ggplot2::aes(x = x, y = y, fill = ice_thickness)) +
       # continious fill of the Sea Ice
-      ggplot2::scale_fill_gradient(name = "Sea Ice", low = "white", high = "blue") +
+      ggplot2::scale_fill_gradient(name = "Sea Ice\n(thickness in m)", low = "white", high = "blue") +
 
       # Continent
       ggplot2::geom_sf(data = antarcticR::load_continent(),
