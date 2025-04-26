@@ -11,7 +11,7 @@ The package provides a tool for accessing, analyzing and visualizing spatial dat
 &nbsp;
 
 ## Installation
-The package was developed on R version 4.4.1 and alos tested on the latest R version 4.5.0.
+The package was developed on R version 4.4.1 and tested on the latest R version 4.5.0 too.
 &nbsp;
 ```R
 library(remotes)
