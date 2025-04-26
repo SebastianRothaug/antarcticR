@@ -11,6 +11,7 @@ The package provides a tool for accessing, analyzing and visualizing spatial dat
 &nbsp;
 
 ## Installation
+The package was developed on R version 4.4.1 and alos tested on the latest R version 4.5.0.
 &nbsp;
 ```R
 library(remotes)
@@ -18,6 +19,8 @@ remotes::install_github("SebastianRothaug/antarcticR")
 library(antarcticR)
 ```
 &nbsp;
+*When testing the package on the latest R version 4.5.0 it could come to minor difficulties in the installation.
+In this case please read the console messages ( potentially manually load `library(terra)` ) before rerun the installation code.*
 
 ## Functions
 Accessing geospatial data for different environmental features of Antarctica
